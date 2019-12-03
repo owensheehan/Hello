@@ -13,5 +13,5 @@ def dateTime():#date and time
 	print ("Current date and time is ")
 	print (now.strftime("%A, %d-%m-%Y : %H:%M"))
     print("Goodbye")	
-	#azure
+	#azure2
 main()
