@@ -14,4 +14,9 @@ def dateTime():
     print (now.strftime("%A, %d-%m-%Y : %H:%M"))
     print("Goodbye")	
 	#azure2
+
+def multiplication(x, y):
+    return x*y
+
+
 main()

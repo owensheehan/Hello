@@ -14,7 +14,10 @@ pipeline {
         }
         stage('Test') {
             steps {
+                sh """
+                test.py -v -rs integration_test
                 echo 'Testing'
+                """
             }
         }
         stage('Deploy') {
