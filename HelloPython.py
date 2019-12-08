@@ -17,7 +17,7 @@ def dateTime():
 	#azure2
 	
 def hold():
-	a = input("Press Enter to continue...")
+	a = raw_input("Press Enter to continue...")
 	print(a)
 	
 def multiplication(x, y):
