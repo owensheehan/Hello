@@ -1,48 +1,48 @@
 pipeline {
-    
-    agent any
-
+    options {
+        skipStagesAfterUnstable()
+    }
+    agent none 
     stages {
-        stage('build') {
-        
+        stage('Build') { 
+            agent {
+                docker {
+                    image 'python:2-alpine' 
+                }
+            }
             steps {
-                sh """
-                python HelloPython.py
-                echo 'Building'
-                """
+                sh 'python -m py_compile HelloPython.py' 
             }
         }
         stage('Test') {
+            agent {
+                docker {
+                    image 'qnib/pytest'
+                }
+            }
             steps {
-                sh """
+                 sh """
                 python test.py -v -rs integration_test
                 echo 'Testing'
                 """
             }
+            
         }
-        stage('Deploy') {
+        stage('Deliver') {
+            agent {
+                docker {
+                    image 'python:2-alpine' 
+                }
+            }
             steps {
-                echo 'Deploying'
+                sh 'python HelloPython.py'
+               
+            }
+            post {
+                success {
+                    archiveArtifacts 'HelloPython.py'
+                }
             }
         }
     }
-    post {
-        always {
-            echo 'This will always run'
-        }
-        success {
-            echo 'This will run only if successful'
-        }
-        failure {
-            echo 'This will run only if failed'
-        }
-        unstable {
-            echo 'This will run only if the run was marked as unstable'
-        }
-        changed {
-            echo 'This will run only if the state of the Pipeline has changed'
-            echo 'For example, if the Pipeline was previously failing but is now successful'
-        }
-    }
 }
-
