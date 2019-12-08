@@ -3,8 +3,7 @@ import datetime
 def main():
 	helloWorld()
 	dateTime()
-	a = input("Press Enter to continue...")
-	print(a)
+	hold()
 	
 def helloWorld():
     print("Hello world!")
@@ -16,7 +15,11 @@ def dateTime():
     print (now.strftime("%A, %d-%m-%Y : %H:%M"))
     print("Goodbye")	
 	#azure2
-
+	
+def hold():
+	a = input("Press Enter to continue...")
+	print(a)
+	
 def multiplication(x, y):
     return x*y
 
