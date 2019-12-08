@@ -3,7 +3,7 @@ import datetime
 def main():
 	helloWorld()
 	dateTime()
-
+	input("Press Enter to continue...")
 def helloWorld():
     print("Hello world!")
     print("Version 2")
