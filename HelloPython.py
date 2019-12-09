@@ -3,10 +3,11 @@ import datetime
 def main():
 	helloWorld()
 	dateTime()
+	print("The result of the multiplication of 3 with 3 is ", str(multiplication(3,3)))
 
 def helloWorld():
     print("Hello world!")
-    print("Version 2")
+    print("Version 3")
 	
 def dateTime():
     now = datetime.datetime.now()
